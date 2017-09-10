@@ -29,7 +29,12 @@ gulp.task('js', () => {
         }))
         .pipe(source('app.js')) // Desired filename of bundled files
         .pipe(gulp.dest(dirs.dest + '/js'))
-});
+})
+
+gulp.task('css', () => {
+    gulp.src('node_modules/react-infinite-calendar/styles.css')
+        .pipe(gulp.dest(dirs.dest + '/styles'))
+})
 
 gulp.task('html', () => {
     gulp.src(dirs.src + '/html/**/*.html')
@@ -50,4 +55,4 @@ gulp.task('webserver', () => {
         }))
 })
 
-gulp.task('default', ['js', 'html', 'watch', 'webserver'])
+gulp.task('default', ['js', 'css', 'html', 'watch', 'webserver'])
