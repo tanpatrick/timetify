@@ -11,17 +11,33 @@ import About from './about'
 const Routes = () => (
     <Router>
         <div>
-            <ul>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/about">About</Link></li>
-                <li><Link to="/topics">Topics</Link></li>
-            </ul>
-
-            <hr />
-
-            <Route exact path="/" component={Home} />
-            <Route path="/about" component={About} />
-            <Route path="/topics" component={Topics} />
+            <nav className="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+                <a className="navbar-brand" href="/">Timetify</a>
+                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
+                </button>
+                <div className="collapse navbar-collapse" id="navbarCollapse">
+                    <span className="navbar-text mr-auto">
+                        lorem ipsum dolor sit amet.
+                    </span>
+                    <ul className="navbar-nav mt-2 mt-md-0">
+                        <li className="nav-item active">
+                            <Link className="nav-link" to="/">Home</Link>
+                        </li>
+                        <li className="nav-item active">
+                            <Link className="nav-link" to="/about">About</Link>
+                        </li>
+                        <li className="nav-item active">
+                            <Link className="nav-link" to="/topics">Topics</Link>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div className="container">
+                <Route exact path="/" component={Home} />
+                <Route path="/about" component={About} />
+                <Route path="/topics" component={Topics} />
+            </div>
         </div>
     </Router>
 )
