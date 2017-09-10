@@ -1,0 +1,27 @@
+{
+    "name": "timetify",
+    "version": "1.0.0",
+    "description": "A simple web application (timesheet) built using ReactJS",
+    "author": "Patrick Tan <tanpatrickjoseph@gmail.com> (https://nz.linkedin.com/in/patrickjosephtan)",
+    "license": "ISC",
+    "scripts": {
+        "start": "gulp"
+    },
+    "devDependencies": {
+        "babel-env": "^2.4.1",
+        "babelify": "^7.3.0",
+        "browserify": "^14.4.0",
+        "gulp": "^3.9.1",
+        "gulp-notify": "^3.0.0",
+        "gulp-webserver": "^0.9.1",
+        "import": "0.0.6",
+        "react": "^15.6.1",
+        "react-dom": "^15.6.1",
+        "react-router-dom": "^4.2.2",
+        "rest": "^2.0.0",
+        "vinyl-source-stream": "^1.1.0"
+    },
+    "dependencies": {
+        "react-columns": "^1.0.2"
+    }
+}
