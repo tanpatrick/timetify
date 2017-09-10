@@ -5,7 +5,7 @@
     "author": "Patrick Tan <tanpatrickjoseph@gmail.com> (https://nz.linkedin.com/in/patrickjosephtan)",
     "license": "ISC",
     "scripts": {
-        "start": "gulp"
+        "start": "gulp build && gulp deploy"
     },
     "devDependencies": {
         "babel-env": "^2.4.1",

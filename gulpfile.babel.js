@@ -32,12 +32,12 @@ gulp.task('js', () => {
 })
 
 gulp.task('css', () => {
-    gulp.src('node_modules/react-infinite-calendar/styles.css')
+    return gulp.src('node_modules/react-infinite-calendar/styles.css')
         .pipe(gulp.dest(dirs.dest + '/styles'))
 })
 
 gulp.task('html', () => {
-    gulp.src(dirs.src + '/html/**/*.html')
+    return gulp.src(dirs.src + '/html/**/*.html')
         .pipe(gulp.dest(dirs.dest))
 })
 
@@ -50,9 +50,14 @@ gulp.task('watch', () => {
 gulp.task('webserver', () => {
     gulp.src(dirs.dest)
         .pipe(webserver({
-            livereload: true,
+            host: '0.0.0.0',
+            port: process.env.PORT || 5000,
+            livereload: false,
             open: true
         }))
 })
 
 gulp.task('default', ['js', 'css', 'html', 'watch', 'webserver'])
+
+gulp.task('build', ['js', 'css', 'html'])
+gulp.task('deploy', ['webserver'])
