@@ -5,6 +5,9 @@ import {
     Link
 } from 'react-router-dom'
 
+import Home from './home'
+import About from './about'
+
 const Routes = () => (
     <Router>
         <div>
@@ -21,18 +24,6 @@ const Routes = () => (
             <Route path="/topics" component={Topics} />
         </div>
     </Router>
-)
-
-const Home = () => (
-    <div>
-        <h2>Home</h2>
-    </div>
-)
-
-const About = () => (
-    <div>
-        <h2>About</h2>
-    </div>
 )
 
 const Topics = ({ match }) => (
