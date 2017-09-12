@@ -27,8 +27,32 @@ class Home extends Component {
                 <h3>Welcome, User!</h3>
                 <BigCalendar
                     {...this.props}
+                    selectable
                     events={this.state.events}
                     views={allViews}
+                    onSelectSlot={(slotInfo) => {
+                        slotInfo.slots.forEach(selectedSlot => {
+                            let title = prompt('Please enter the event name')
+                            let slot = {
+                                'title': title,
+                                'start': selectedSlot,
+                                'end': selectedSlot
+                            }
+
+                            let ctr = 0
+                            this.state.events.forEach(event => {
+                                if (JSON.stringify(event) == JSON.stringify(slot)) {
+                                    ctr++
+                                }
+                            })
+
+                            if (ctr === 0) {
+                                this.setState({ events: this.state.events.concat([slot]) })
+                            } else {
+                                alert('Oops! Looks like the event you\'ve entered already exist')
+                            }
+                        })
+                    }}
                 />
             </div>
         )
