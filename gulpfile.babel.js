@@ -1,11 +1,13 @@
 'use strict'
 
-import babelify from 'babelify';
-import browserify from 'browserify';
-import gulp from 'gulp';
-import notify from 'gulp-notify';
-import source from 'vinyl-source-stream';
-import webserver from 'gulp-webserver';
+import babelify from 'babelify'
+import browserify from 'browserify'
+import concat from 'gulp-concat'
+import gulp from 'gulp'
+import minifyCss from 'gulp-minify-css'
+import notify from 'gulp-notify'
+import source from 'vinyl-source-stream'
+import webserver from 'gulp-webserver'
 
 const dirs = {
     src: 'src',
@@ -32,7 +34,11 @@ gulp.task('js', () => {
 })
 
 gulp.task('css', () => {
-    return gulp.src('node_modules/react-infinite-calendar/styles.css')
+    return gulp.src([
+            'node_modules/react-big-calendar/lib/css/react-big-calendar.css'
+        ])
+        .pipe(minifyCss())
+        .pipe(concat('main.css'))
         .pipe(gulp.dest(dirs.dest + '/styles'))
 })
 
