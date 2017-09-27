@@ -3,6 +3,7 @@ import BigCalendar from 'react-big-calendar'
 import moment from 'moment';
 
 import Dialog from '../components/dialog'
+import EventEntry from '../events/entry'
 
 BigCalendar.setLocalizer(
     BigCalendar.momentLocalizer(moment)
@@ -99,36 +100,9 @@ class Home extends Component {
                 />
 
                 <Dialog id="event-dialog"
-                    title="Record"
+                    title="New Entry"
                     onClose={this.recordEvents.bind(this)}>
-                    <div>
-                        <form>
-                            <div className="form-group row">
-                                <label className="col-sm-3 col-form-label">Date (start)</label>
-                                <div className="col-sm-9">
-                                    <input id="start-date" type="text" className="form-control" placeholder="Between" readOnly />
-                                </div>
-                            </div>
-                            <div className="form-group row" id="end-date-wrapper">
-                                <label className="col-sm-3 col-form-label">Date (end)</label>
-                                <div className="col-sm-9">
-                                    <input id="end-date" type="text" className="form-control" placeholder="Between" readOnly />
-                                </div>
-                            </div>
-                            <div className="form-group row">
-                                <label className="col-sm-3 col-form-label">Remarks</label>
-                                <div className="col-sm-9">
-                                    <input id="remarks" type="text" className="form-control" placeholder="Remarks" />
-                                </div>
-                            </div>
-                            <div className="form-group row">
-                                <label className="col-sm-3 col-form-label">No of Hours</label>
-                                <div className="col-sm-9">
-                                    <input id="hours" type="text" className="form-control" placeholder="# of hours" />
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+                    <EventEntry />
                 </Dialog>
             </div>
         )
